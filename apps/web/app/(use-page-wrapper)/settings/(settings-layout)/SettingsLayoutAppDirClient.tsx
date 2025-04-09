@@ -56,25 +56,25 @@ const getTabs = (orgBranding: OrganizationBranding | null) => {
         { name: "2fa_auth", href: "/settings/security/two-factor-auth" },
       ],
     },
-    {
-      name: "billing",
-      href: "/settings/billing",
-      icon: "credit-card",
-      children: [{ name: "manage_billing", href: "/settings/billing" }],
-    },
-    {
-      name: "developer",
-      href: "/settings/developer",
-      icon: "terminal",
-      children: [
-        //
-        { name: "webhooks", href: "/settings/developer/webhooks" },
-        { name: "api_keys", href: "/settings/developer/api-keys" },
-        { name: "admin_api", href: "/settings/organizations/admin-api" },
-        // TODO: Add profile level for embeds
-        // { name: "embeds", href: "/v2/settings/developer/embeds" },
-      ],
-    },
+    // {
+    //   name: "billing",
+    //   href: "/settings/billing",
+    //   icon: "credit-card",
+    //   children: [{ name: "manage_billing", href: "/settings/billing" }],
+    // },
+    // {
+    //   name: "developer",
+    //   href: "/settings/developer",
+    //   icon: "terminal",
+    //   children: [
+    //     //
+    //     { name: "webhooks", href: "/settings/developer/webhooks" },
+    //     { name: "api_keys", href: "/settings/developer/api-keys" },
+    //     { name: "admin_api", href: "/settings/organizations/admin-api" },
+    //     // TODO: Add profile level for embeds
+    //     // { name: "embeds", href: "/v2/settings/developer/embeds" },
+    //   ],
+    // },
     {
       name: "organization",
       href: "/settings/organizations",
@@ -118,18 +118,18 @@ const getTabs = (orgBranding: OrganizationBranding | null) => {
         },
       ],
     },
-    {
-      name: "teams",
-      href: "/teams",
-      icon: "users",
-      children: [],
-    },
-    {
-      name: "other_teams",
-      href: "/settings/organizations/teams/other",
-      icon: "users",
-      children: [],
-    },
+    // {
+    //   name: "teams",
+    //   href: "/teams",
+    //   icon: "users",
+    //   children: [],
+    // },
+    // {
+    //   name: "other_teams",
+    //   href: "/settings/organizations/teams/other",
+    //   icon: "users",
+    //   children: [],
+    // },
     {
       name: "admin",
       href: "/settings/admin",

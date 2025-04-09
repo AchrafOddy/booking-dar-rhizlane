@@ -143,7 +143,6 @@ export function SideBar({ bannersHeight, user }: SideBarProps) {
 
         {!isPlatformPages && (
           <div>
-            <Tips />
             {bottomNavItems.map((item, index) => (
               <Tooltip side="right" content={t(item.name)} className="lg:hidden" key={item.name}>
                 <ButtonOrLink

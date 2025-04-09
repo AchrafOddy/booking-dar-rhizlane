@@ -10,7 +10,6 @@ import {
 import { KBarTrigger } from "@calcom/features/kbar/Kbar";
 import classNames from "@calcom/ui/classNames";
 
-import { TeamInviteBadge } from "../TeamInviteBadge";
 import type { NavigationItemType } from "./NavigationItem";
 import { NavigationItem, MobileNavigationItem, MobileNavigationMoreItem } from "./NavigationItem";
 
@@ -34,96 +33,96 @@ const getNavigationItems = (orgBranding: OrganizationBranding): NavigationItemTy
     href: "/availability",
     icon: "clock",
   },
-  ...(orgBranding
-    ? [
-        {
-          name: "members",
-          href: `/settings/organizations/${orgBranding.slug}/members`,
-          icon: "building",
-          moreOnMobile: true,
-        } satisfies NavigationItemType,
-      ]
-    : []),
-  {
-    name: "teams",
-    href: "/teams",
-    icon: "users",
-    badge: <TeamInviteBadge />,
-    moreOnMobile: true,
-  },
-  {
-    name: "apps",
-    href: "/apps",
-    icon: "grid-3x3",
-    moreOnMobile: true,
-    isCurrent: ({ pathname: path, item }) => {
-      // During Server rendering path is /v2/apps but on client it becomes /apps(weird..)
-      return (path?.startsWith(item.href) ?? false) && !(path?.includes("routing-forms/") ?? false);
-    },
-    child: [
-      {
-        name: "app_store",
-        href: "/apps",
-        isCurrent: ({ pathname: path, item }) => {
-          // During Server rendering path is /v2/apps but on client it becomes /apps(weird..)
-          return (
-            (path?.startsWith(item.href) ?? false) &&
-            !(path?.includes("routing-forms/") ?? false) &&
-            !(path?.includes("/installed") ?? false)
-          );
-        },
-      },
-      {
-        name: "installed_apps",
-        href: "/apps/installed/calendar",
-        isCurrent: ({ pathname: path }) =>
-          (path?.startsWith("/apps/installed/") ?? false) ||
-          (path?.startsWith("/v2/apps/installed/") ?? false),
-      },
-    ],
-  },
-  {
-    name: MORE_SEPARATOR_NAME,
-    href: "/more",
-    icon: "ellipsis",
-  },
-  {
-    name: "routing",
-    href: "/routing",
-    icon: "split",
-    isCurrent: ({ pathname }) => pathname?.startsWith("/routing") ?? false,
-    moreOnMobile: true,
-  },
-  {
-    name: "workflows",
-    href: "/workflows",
-    icon: "zap",
-    moreOnMobile: true,
-  },
-  {
-    name: "insights",
-    href: "/insights",
-    icon: "chart-bar",
-    isCurrent: ({ pathname: path, item }) => path?.startsWith(item.href) ?? false,
-    moreOnMobile: true,
-    child: [
-      {
-        name: "bookings",
-        href: "/insights",
-        isCurrent: ({ pathname: path }) => path === "/insights",
-      },
-      {
-        name: "routing",
-        href: "/insights/routing",
-        isCurrent: ({ pathname: path }) => path?.startsWith("/insights/routing") ?? false,
-      },
-      {
-        name: "router_position",
-        href: "/insights/router-position",
-        isCurrent: ({ pathname: path }) => path?.startsWith("/insights/router-position") ?? false,
-      },
-    ],
-  },
+  // ...(orgBranding
+  //   ? [
+  //       {
+  //         name: "members",
+  //         href: `/settings/organizations/${orgBranding.slug}/members`,
+  //         icon: "building",
+  //         moreOnMobile: true,
+  //       } satisfies NavigationItemType,
+  //     ]
+  //   : []),
+  // {
+  //   name: "teams",
+  //   href: "/teams",
+  //   icon: "users",
+  //   badge: <TeamInviteBadge />,
+  //   moreOnMobile: true,
+  // },
+  // {
+  //   name: "apps",
+  //   href: "/apps",
+  //   icon: "grid-3x3",
+  //   moreOnMobile: true,
+  //   isCurrent: ({ pathname: path, item }) => {
+  //     // During Server rendering path is /v2/apps but on client it becomes /apps(weird..)
+  //     return (path?.startsWith(item.href) ?? false) && !(path?.includes("routing-forms/") ?? false);
+  //   },
+  //   child: [
+  //     {
+  //       name: "app_store",
+  //       href: "/apps",
+  //       isCurrent: ({ pathname: path, item }) => {
+  //         // During Server rendering path is /v2/apps but on client it becomes /apps(weird..)
+  //         return (
+  //           (path?.startsWith(item.href) ?? false) &&
+  //           !(path?.includes("routing-forms/") ?? false) &&
+  //           !(path?.includes("/installed") ?? false)
+  //         );
+  //       },
+  //     },
+  //     {
+  //       name: "installed_apps",
+  //       href: "/apps/installed/calendar",
+  //       isCurrent: ({ pathname: path }) =>
+  //         (path?.startsWith("/apps/installed/") ?? false) ||
+  //         (path?.startsWith("/v2/apps/installed/") ?? false),
+  //     },
+  //   ],
+  // },
+  // {
+  //   name: MORE_SEPARATOR_NAME,
+  //   href: "/more",
+  //   icon: "ellipsis",
+  // },
+  // {
+  //   name: "routing",
+  //   href: "/routing",
+  //   icon: "split",
+  //   isCurrent: ({ pathname }) => pathname?.startsWith("/routing") ?? false,
+  //   moreOnMobile: true,
+  // },
+  // {
+  //   name: "workflows",
+  //   href: "/workflows",
+  //   icon: "zap",
+  //   moreOnMobile: true,
+  // },
+  // {
+  //   name: "insights",
+  //   href: "/insights",
+  //   icon: "chart-bar",
+  //   isCurrent: ({ pathname: path, item }) => path?.startsWith(item.href) ?? false,
+  //   moreOnMobile: true,
+  //   child: [
+  //     {
+  //       name: "bookings",
+  //       href: "/insights",
+  //       isCurrent: ({ pathname: path }) => path === "/insights",
+  //     },
+  //     {
+  //       name: "routing",
+  //       href: "/insights/routing",
+  //       isCurrent: ({ pathname: path }) => path?.startsWith("/insights/routing") ?? false,
+  //     },
+  //     {
+  //       name: "router_position",
+  //       href: "/insights/router-position",
+  //       isCurrent: ({ pathname: path }) => path?.startsWith("/insights/router-position") ?? false,
+  //     },
+  //   ],
+  // },
 ];
 
 const platformNavigationItems: NavigationItemType[] = [
